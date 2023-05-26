@@ -1,0 +1,219 @@
+/* topbar css */
+.hero-banner-heading {
+    background-color: rgb(0, 29, 88);
+    color: #FFF;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 4px 100px !important;
+    margin-top: -21px;
+    height: 60px;
+}
+.hero-banner-heading h2 {
+    font-size: 1.2rem !important;
+    font-weight: 400;
+    line-height: 40px;
+}
+.topbar-container {
+    z-index: 999;
+    position: relative;
+}
+.topbar-wrapper {
+    background-color: #FFF;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 15px;
+    align-items: center;
+    padding: 0 90px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow:
+    2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+    12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+    100px 100px 80px rgba(0, 0, 0, 0.07)
+    ;
+}
+.topbar-container img {
+    width: 130px;
+}
+.topbar-cta {
+    height: 75px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+}
+.topbar-cta ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    list-style: none;
+    padding-left: 100px;
+}
+.topbar-cta ul li a {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-right: 12px;
+    color: #000;
+    border: 2px solid #000;
+    padding: 12px;
+    border-radius: 2px;
+}
+.topbar-cta ul li a:hover {
+    border: 2px solid #dc0000;
+}
+/* hero banner css */
+.hero-banner-wrapper {
+    width: 100%;
+    position: relative;
+}
+.hero-banner-wrapper img {
+    width: 100%;
+}
+.hero-banner-content {
+    position: absolute;
+    top: 50px;
+    left: 100px;
+}
+.hero-banner-content-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.hero-banner-wrapper h2 {
+    text-transform: uppercase;
+    font-size: 44px;
+    color: #fff;
+}
+.hero-banner-wrapper h3 {
+    text-transform: uppercase;
+    font-size: 34px;
+    color: #fff;
+    padding: 4px;
+}
+.red-border {
+    border-left: 6px solid rgb(255, 0, 0);
+    background: rgba(255, 0, 0, 0.7);
+}
+.blue-border {
+    border-left: 6px solid rgb(0, 85, 255);
+    background: rgba(0, 85, 255, 0.7);
+}
+.mustard-border {
+    border-left: 6px solid rgb(255, 217, 0);
+    background: rgba(255, 217, 0, 0.7);
+}
+.default-cta {
+    background: rgb(185,28,20);
+    border: 2px solid rgb(211 25 16);
+    border-radius: 2px;
+    cursor: pointer;
+}
+@media (max-width: 767px) {
+    .topbar-wrapper {
+        padding: 4px 15px;
+        flex-direction: column;
+        height: 180px;
+    }
+    .topbar-container img {
+        width: 120px;
+    }
+    .topbar-links {
+      height: 80px;
+    }
+    .topbar-links ul { 
+      flex-direction: column;
+      padding: 0;
+      margin: 0 auto;
+    }
+    .topbar-links ul li {
+      height: 28px;
+      padding: 6px;
+     } 
+     .topbar-links ul li a{
+      padding: 6px;
+     }
+    .topbar-cta {
+        justify-content: center;
+    }
+    .topbar-cta ul {
+        justify-content: center;
+        padding-left: 10px;
+    }
+    .hero-banner-wrapper {
+        margin-top: 0;
+        height: 160px;
+    }
+    .hero-banner-heading {
+        left: 0; 
+        right: 0; 
+        margin-left: auto; 
+        margin-right: auto;
+        padding: 4px 85px !important; 
+    }
+    .hero-banner-heading h2 {
+        font-size: 15px !important;
+        margin-top: 15px;
+        text-align: center;
+    }
+    .hero-cta-center {
+        display: flex;
+        justify-content: center;
+      }
+    .hero-banner-content {
+        top: 30px;
+        left: 0;
+    }
+    .hero-banner-content-wrapper {
+        flex-direction: row;
+        column-gap: 8px;
+    }
+    .hero-banner-wrapper h2 {
+        font-size: 14px;
+    }
+    .hero-banner-wrapper h3 {
+        font-size: 12px;
+    }
+    .default-cta {
+        padding: 4px;
+        height: 22px;
+        line-height: 22px;
+        font-size: 0.8rem;
+    }
+}
+@media (min-width: 432px) and (max-width: 764px) {
+    .hero-banner-wrapper {
+        height: 265px;
+    }
+    .hero-banner-content {
+        top: 80px !important;
+    }
+    .hero-banner-heading h2 {
+        font-size: 15px !important;
+        text-align: center;
+    }
+}
+@media (max-width: 832px) {
+    .topbar-wrapper {
+        padding: 4px 15px;
+        flex-direction: column;
+        height: 180px;
+    }
+    .topbar-cta {
+        justify-content: center;
+    }
+    .topbar-cta ul {
+        justify-content: center;
+        padding-left: 10px;
+    }
+}
+@media (max-width: 1072px) {
+    .hero-banner-content {
+        top: 20px;
+    }
+}
