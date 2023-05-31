@@ -22,8 +22,8 @@ const Topbar = () => {
               </div>
               <div className='topbar-cta'>
                 <ul>
-                  <li><Link to='/' ><FontAwesomeIcon icon="fa-solid fa-envelope" />info@icriindia.com</Link></li>
-                  <li><Link to='/' ><FontAwesomeIcon icon="fa-solid fa-phone" />9717194563-61</Link></li>
+                  <li><a href = "mailto: info@icriindia.com"><FontAwesomeIcon icon="fa-solid fa-envelope" />info@icriindia.com</a></li>
+                  <li><a href="tel:9717194563"><FontAwesomeIcon icon="fa-solid fa-phone" />9717194563-61</a></li>
                 </ul>
               </div>
                 {/* <span className='cta-btn-text f-size-1 side-menu-icon' onClick={sidebarToggle} >
