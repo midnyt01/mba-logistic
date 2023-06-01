@@ -1,9 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ContactImgBanner from '../../assets/WhatsApp Image 2023-05-23 at 11.30.18 AM.jpeg'
 import "../home-content/home-content.styled.css";
 import Fade from 'react-reveal/Fade';
 
 const ContactForm = () => {
+
+    
+  const form = useRef();
+
+  const [response, setResponse] = useState({
+    status: false,
+    text: ""
+  });
 
   const [campus, setCampus] = useState(null);
   const [UniOption, setUniOption] = useState([]);
@@ -21,6 +29,28 @@ const ContactForm = () => {
     if (value) {
       setQuali(value);
     }
+  };
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm("service_mg1yl5p", "template_vm4z6yd",form.current, '1g6YrUPoy-yxB0-Au' )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setResponse({
+            status: true,
+            text: 'Thanks for contacting us we will rech out to you soon'
+          })
+        },
+        (error) => {
+           setResponse({
+            status: false,
+            text: error.text
+          })
+          console.log(error.text);
+        }
+      );
   };
 
   useEffect(() => {
@@ -71,8 +101,9 @@ const ContactForm = () => {
           </div>
           <Fade bottom cascade>
           <div className="contact-form-wrapper">
-            <form className="contact-form">
-              <p>
+          <p style={{color: response.status ? 'green' : 'red'}}>{response.text}</p>
+              <form className="contact-form" onSubmit={handleOnSubmit} ref={form}>
+                 <p>
                 <input placeholder="Enter your name" type="text" required/>
               </p>
               <p>

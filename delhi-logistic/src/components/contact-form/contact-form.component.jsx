@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ContactImgBanner from "../../assets/WhatsApp Image 2023-05-23 at 11.30.18 AM.jpeg";
 import "../home-content/home-content.styled.css";
 import Fade from "react-reveal/Fade";
@@ -16,6 +16,15 @@ const Default_form_field = {
 };
 
 const ContactForm = () => {
+
+  
+  const form = useRef();
+
+  const [response, setResponse] = useState({
+    status: false,
+    text: ""
+  });
+
   const [campus, setCampus] = useState(null);
   const [UniOption, setUniOption] = useState([]);
   const [quali, setQuali] = useState(null);
@@ -23,6 +32,8 @@ const ContactForm = () => {
   const [formField, setFormField] = useState(Default_form_field);
   const { Name, PhoneNumber, Email, City, Qualification, Course, Query } =
     formField;
+
+    console.log(response)
 
   const handleOnFieldChange = (e) => {
     const { name, value } = e.target;
@@ -54,12 +65,19 @@ const ContactForm = () => {
       .then(
         (result) => {
           console.log(result.text);
+          setResponse({
+            status: true,
+            text: 'Thanks for contacting us we will rech out to you soon'
+          })
         },
         (error) => {
+           setResponse({
+            status: false,
+            text: error.text
+          })
           console.log(error.text);
         }
       );
-    console.log(formField);
     let alink = document.createElement("a");
     alink.href = Prospectus;
     alink.download = "MBA Logistics & Supply Chain Management - Delhi";
@@ -116,7 +134,8 @@ const ContactForm = () => {
           </div>
           <Fade bottom cascade>
             <div className="contact-form-wrapper">
-              <form className="contact-form" onSubmit={handleOnSubmit}>
+              <p style={{color: response.status ? 'green' : 'red'}}>{response.text}</p>
+              <form className="contact-form" onSubmit={handleOnSubmit} ref={form}>
                 <p>
                   <input
                     placeholder="Enter your name"
